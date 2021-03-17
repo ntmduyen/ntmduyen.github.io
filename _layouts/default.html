@@ -10,7 +10,15 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{ site.google_analytics }}');
+    gtag('config', '{{ site.google_analytics }}', {
+      'send_page_view': false,
+      'custom_map': {'dimension1': 'clientId'}
+    });
+
+    gtag('get', '{{ site.google_analytics }}', 'client_id', (clientID) => {
+      gtag('event', 'page_view', {'clientId': clientID});
+    })
+
   </script>
   </head>
   <body>
