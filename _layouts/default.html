@@ -4,30 +4,30 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/css/style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', '{{ site.google_analytics }}', {
-      'send_page_view': false,
-      'custom_map': {'dimension1': 'clientId'}
-    });
+      gtag('config', '{{ site.google_analytics }}', {
+        'send_page_view': false,
+        'custom_map': {'dimension1': 'clientId'}
+      });
 
-    gtag('get', '{{ site.google_analytics }}', 'client_id', (clientID) => {
-      gtag('event', 'page_view', {'clientId': clientID});
-    })
+      gtag('get', '{{ site.google_analytics }}', 'client_id', (clientID) => {
+        gtag('event', 'page_view', {'clientId': clientID});
+      })
 
-    function getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
-    }
+      function getRandomArbitrary(min, max) {
+          return Math.random() * (max - min) + min;
+      }
 
-    var user_id = getRandomArbitrary(1, 10);
-    if (user_id > 5) {
-        gtag('set', '{{ site.google_analytics }}', 'user_id', user_id);
-    }
-  </script>
+      var user_id = getRandomArbitrary(1, 10);
+      if (user_id > 5) {
+          gtag('set', '{{ site.google_analytics }}', 'user_id', user_id);
+      }
+    </script>
   </head>
   <body>
     <nav>
