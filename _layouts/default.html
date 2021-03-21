@@ -12,11 +12,11 @@
 
       gtag('config', '{{ site.google_analytics }}', {
         'send_page_view': false,
-        'custom_map': {'dimension1': 'clientId'}
+        'custom_map': {'dimension1': 'clientId', 'dimension2': 'userId'}
       });
 
-      gtag('get', '{{ site.google_analytics }}', 'client_id', (clientID) => {
-        gtag('event', 'page_view', {'clientId': clientID});
+      gtag('get', '{{ site.google_analytics }}', 'client_id', (clientId) => {
+        gtag('event', 'page_view', {'clientId': clientId});
       });
 
       function getQueryVariable(variable) {
@@ -33,8 +33,9 @@
 
       var user_id = getQueryVariable("user_id");
       if (user_id != undefined) {
-        gtag('set', '{{ site.google_analytics }}', 'user_id', user_id);
+        gtag('set', {'userId', user_id});
       }
+
     </script>
   </head>
   <body>
